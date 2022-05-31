@@ -1,0 +1,1 @@
+{'keywords': 'столяр', 'dispersion': [{'name': 'Москва', 'percent': '70.0%', 'count': 14}, {'name': 'Санкт-Петербург', 'percent': '10.0%', 'count': 2}, {'name': 'Одинцово', 'percent': '5.0%', 'count': 1}, {'name': 'Новосибирск', 'percent': '5.0%', 'count': 1}, {'name': 'Руза', 'percent': '5.0%', 'count': 1}, {'name': 'Минск', 'percent': '5.0%', 'count': 1}]}

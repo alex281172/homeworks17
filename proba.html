@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск</title>
+<!--    подключение css-->
+    <link rel="stylesheet" href="/css/main.css", , v = 4>
+
+</head>
+<body>
+
+    <h1>Форма для поиска</h1>
+    <!--    form для отправки данных на сервер-->
+    <form action="results.html">
+<!--        input - поля для ввода данных или кнопки-->
+<!--        type - тип поля, value-его значение, placeholder-подсказка-->
+        <input type="text" name="query_string" value="" placeholder="строка поиска">
+        <br>
+        <br>
+<!--        submit - кнопка-->
+<!--        select - выпадающий список-->
+        <p><select name="where">
+                <option value="all">Везде</option>
+                <option value="company">В названии компании</option>
+                <option selected value="name">В названии вакансии</option>
+            </select></p>
+        <input type="submit" value="Искать вакансии">
+    </form>
+    <hr>
+
+<p class="proverb">
+    Работа не волк, да прибудет с вами сила
+</p>
+    <a href="index.html">На главную</a>
+</body>
+</html>

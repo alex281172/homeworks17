@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Контакты</title>
+
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/main.css') }}">
+<!--    <link rel="stylesheet" href="static/css/main.css">-->
+
+</head>
+<body>
+
+
+    <h1>ПАРСЕР hh.ru</h1>
+    <hr>
+    <p>
+        Контакты
+    </p>
+        <ul>
+                <li>
+                    <a href="/">Главная страница</a>
+                </li>
+                <li>
+                    <a href="/contacts/">Контакты</a>
+                </li>
+                <li>
+                    <a href="/results/">Результаты парсера HH.RU</a>
+                </li>
+                <li>
+                    <a href="/choise/">Парсер HH.RU</a>
+                </li>
+                <li>
+                    <a href="/choise_roc/">Парсер Рокада-Мед</a>
+                </li>
+        </ul>
+    <hr>
+        тел.: {{tel}}
+    <br>
+        адрес: {{my_adress}}
+    <br>
+        разработчик: {{name}}
+
+
+<p class="proverb">
+    Работа не волк, да прибудет с вами сила
+</p>
+
+
+
+
+
+<!--<form action="/contact" method="post" class="form-contact">-->
+<!--<p><label>Имя: </label> <input type="text" name="username" value="" requied />-->
+<!--<p><label>Email: </label> <input type="text" name="email" value="" requied />-->
+<!--<p><label>Сообщение:</label>-->
+<!--<p><textarea name="message" rows=7 cols=40></textarea>-->
+<!--<p><input type="submit" value="Отправить" />-->
+<!--</form>-->
+
+
+
+</body>
+
+</html>

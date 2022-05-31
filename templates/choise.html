@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ПАРСЕР hh.ru</title>
+
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/main.css') }}">
+
+</head>
+<body>
+            <h1>ПАРСЕР hh.ru</h1>
+    <hr>
+    <p>
+        Выбор профессии
+    </p>
+            <ul>
+                <li>
+                    <a href="/">Главная страница</a>
+                </li>
+                <li>
+                    <a href="/contacts/">Контакты</a>
+                </li>
+                <li>
+                    <a href="/results/">Результаты парсера HH.RU</a>
+                </li>
+                <li>
+                    <a href="/choise/">Парсер HH.RU</a>
+                </li>
+                <li>
+                    <a href="/choise_roc/">Парсер Рокада-Мед</a>
+                </li>
+        </ul>
+
+
+    <hr>
+    <h3>ФОРМА ПОИСКА</h3>
+
+
+    <form method="post">
+        <h4>Сколько вакансий анализировать?</h4>
+        <input  type="text" class="form-control" name="pages" placeholder="количество вакансий для парсинга">
+        <h4>Укажите профессию для парсинга</h4>
+        <input  type="text" class="form-control" name="proff" value="" placeholder="профессия для парсинга">
+<!--        <input type="text" class="form-control" name="" value="" placeholder="укажите вакансию для поиска">-->
+        <button type="submit">Запрос</button>
+
+
+
+
+    </form>
+
+
+
+
+
+            <p id="blink">Ждите сообщения о завершении работы парсера</p>
+
+
+{% for msg in get_flashed_messages() %}
+<div class="flash">{{msg}}</div>
+{% endfor %}
+
+            <p class="alert">
+                    {{info}}
+            </p>
+
+
+
+            <p class="proverb">
+                Без труда, не выловишь и рыбку из пруда!
+            </p>
+
+
+
+</body>
+</html>
