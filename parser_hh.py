@@ -3,14 +3,12 @@ import pprint
 from collections import Counter
 from operator import itemgetter
 import json
+import sqlite3 as sq
 DOMAIN = 'https://api.hh.ru/'
 url_vacancies = f'{DOMAIN}vacancies'
 
-# def hhparser(proff = 'Python developer'):
 
-
-
-def parser_hh(proff, pages):
+def parser_hh(proff, pages, region):
     f = open('result_top_10.txt', 'w')
     f.write('')
     f.close()
@@ -28,8 +26,10 @@ def parser_hh(proff, pages):
     my_skill_list = []
     my_city_list = []
     total_skill = []
+    total_skill_sql = []
     total_skill1 = {}
     total_city = []
+    total_city_sql = []
     main_count = 0
     new_new = []
     # modify_my_city_list = []
@@ -41,13 +41,16 @@ def parser_hh(proff, pages):
     page = int(int(pages)/20) #int(input('Сколько страниц анализировать? (мах 100): '))
 
     #Перебор страниц
+    text = f'{proff} {region}'
 
     for page_count in range(page):
 
         print(f'Парсинг страницы {page_count+1}')
+
         params = {
-            'text': proff,
+            'text': text,
             'page': page_count
+
         }
         page_count += 1
         vacancy_count = 0
@@ -108,6 +111,7 @@ def parser_hh(proff, pages):
         combain = f'{name} {percent} {count}'
         total_skill1 = {counter: combain}
 
+
     total_skill = (sorted(total_skill, key=itemgetter('count'), reverse=True))
     print(type(total_skill))
 
@@ -119,6 +123,8 @@ def parser_hh(proff, pages):
         count = counter1['count']
         new = f'{name} {percent} {count}'
         new_new.append(new)
+        total_skill_current = (name, percent, count)
+        total_skill_sql.append(total_skill_current)
 
     print('*' * 200)
     print(total_skill1)
@@ -149,6 +155,8 @@ def parser_hh(proff, pages):
         path = count / lens_my_city_list
         percent = '{percent:.1%}'.format(percent=path)
         total_city.append({'name': name, 'percent': percent, 'count': count})
+        total_city_current = (name, percent, count)
+        total_city_sql.append(total_city_current)
 
     total_city = (sorted(total_city, key=itemgetter('count'), reverse=True))
 
@@ -181,7 +189,10 @@ def parser_hh(proff, pages):
 
     f = open('top_10.txt', 'a')
     f.write('Профессия: ')
-    f.write(result_skill['keywords'])
+    f.write(proff)
+    f.write('\n')
+    f.write('Город: ')
+    f.write(region)
     f.write('\n')
     f.write('Всего навыков: ')
     f.write(result_skill['count'])
@@ -224,4 +235,23 @@ def parser_hh(proff, pages):
     f.write(result_city_json)
     f.close()
     print('Успешно создан файл city.fson со списком городов')
+
+    conn = sq.connect('my_base_hh_homeworks.db')
+    cursor = conn.cursor()
+    cursor.execute('delete from city')
+    cursor.execute('delete from skills')
+
+
+    print('-' * 50)
+    print(total_skill_sql)
+
+    for counter in total_skill_sql:
+        cursor.execute('insert into skills (name, percent, count) values(?, ?, ?)', (counter[0], counter[1], counter[2],))
+
+    for counter in total_city_sql:
+        cursor.execute('insert into city (name, percent, count) values(?, ?, ?)', (counter[0], counter[1], counter[2],))
+
+
+    conn.commit()
+    conn.close()
 

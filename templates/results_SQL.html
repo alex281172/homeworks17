@@ -2,19 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Парсер новостей РокадаМед</title>
+    <title>Результаты SQL</title>
 
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/main.css') }}">
-<!--    <link rel="stylesheet" href="static/css/main.css">-->
 
 </head>
 <body>
-
-
     <h1>ПАРСЕР hh.ru</h1>
     <hr>
     <p>
-        Парсер новостей РокадаМед
+        Результаты SQL
     </p>
         <ul>
              <li>
@@ -35,41 +32,56 @@
                 <li>
                     <a href="/choise_roc/">Парсер Рокада-Мед</a>
                 </li>
+
         </ul>
-    <hr>
+<hr>
 
-    <form method="post">
-        <button type="submit">Запуск парсера новостей магазина "РокадМед"</button>
-    </form>
-    {% if info %}
-    {% for item in info %}
-
-                {{item}}
-    <p>
-
+    {% if parser_head %}
+    {% for item in parser_head %}
+            <p>
+                <h3>{{item}}</h3>
+            </p>
     {% endfor %}
     {% else %}
-      <p class="alert"></p>
+      <p class="alert">Данных нет</p>
     {% endif %}
 
-<p class="proverb">
-    Работа не волк, да прибудет с вами сила
-</p>
+
+    {% if result_skill_SQL %}
+    {% for item in result_skill_SQL %}
+            <p>
+                {{item}}
+            </p>
+    {% endfor %}
+    {% else %}
+      <p class="alert">Данных нет</p>
+
+    {% endif %}
+
+    {% if city_parser_head %}
+    {% for item in city_parser_head %}
+            <p>
+                <h3>{{item}}</h3>
+            </p>
+    {% endfor %}
+    {% else %}
+      <p class="alert">Данных нет</p>
+
+    {% endif %}
 
 
 
 
+    {% if result_city_SQL %}
+    {% for item in result_city_SQL %}
+            <p>
+                {{item}}
+            </p>
+    {% endfor %}
+    {% else %}
+      <p class="alert">Данных нет</p>
 
-<!--<form action="/contact" method="post" class="form-contact">-->
-<!--<p><label>Имя: </label> <input type="text" name="username" value="" requied />-->
-<!--<p><label>Email: </label> <input type="text" name="email" value="" requied />-->
-<!--<p><label>Сообщение:</label>-->
-<!--<p><textarea name="message" rows=7 cols=40></textarea>-->
-<!--<p><input type="submit" value="Отправить" />-->
-<!--</form>-->
-
-
+    {% endif %}
 
 </body>
-
 </html>

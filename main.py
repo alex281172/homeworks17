@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template, flash
 from parser_hh import parser_hh
 from parser_rocada import parser_roc
+import sqlite3 as sq
 
 
 app = Flask(__name__)
@@ -37,10 +38,27 @@ def results():
         city_parser_data = f.readlines()
     with open('city_head_10.txt', 'r') as f:
         city_parser_head = f.readlines()
-
     return render_template('results.html', parser_data = parser_data, parser_head = parser_head,
-                           city_parser_data = city_parser_data, city_parser_head = city_parser_head)
+        city_parser_data = city_parser_data, city_parser_head = city_parser_head
+        )
 
+@app.route('/results_SQL/')
+def results_SQL():
+    with open('top_10.txt', 'r') as f:
+        parser_head = f.readlines()
+    with open('city_head_10.txt', 'r') as f:
+        city_parser_head = f.readlines()
+    conn = sq.connect('my_base_hh_homeworks.db')
+    cursor = conn.cursor()
+    cursor.execute('SELECT * from skills')
+    result_skill_SQL = cursor.fetchall()
+    cursor.execute('SELECT * from city')
+    result_city_SQL = cursor.fetchall()
+    conn.close()
+    return render_template(
+        'results_SQL.html', result_skill_SQL = result_skill_SQL, result_city_SQL = result_city_SQL,
+        parser_head = parser_head, city_parser_head = city_parser_head
+        )
 
 
 @app.route('/choise/', methods=['GET'])
@@ -52,8 +70,10 @@ def choise_get():
 def choise_post():
     text = request.form['proff']
     pages = request.form['pages']
+    region = request.form['region']
     print(text)
     print(pages)
+    # text = f'{text} {region}'
     if int(pages) < 20:
         # flash('выбор слишком мал')
         info = 'Запрос обработан. Выбор слишком мал, спарсено 20 вакансий'
@@ -62,7 +82,7 @@ def choise_post():
     else:
         info = 'Запрос обработан.'
 
-    parser_hh(text, pages)
+    parser_hh(text, pages, region)
     return render_template('choise.html', info=info)
 
 @app.route('/choise_roc/', methods=['GET'])
@@ -77,7 +97,6 @@ def choise_post_roc():
     with open('history.txt', 'r') as f:
         info = f.readlines()
     return render_template('choise_roc.html', info=info)
-
 
 
 if __name__ == "__main__":
