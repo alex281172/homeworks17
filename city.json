@@ -1,59 +1,19 @@
 {
-    "keywords": "1C developer",
+    "keywords": "врач",
     "dispersion": [
         {
             "name": "Москва",
-            "percent": "57.5%",
-            "count": 23
+            "percent": "60.0%",
+            "count": 12
         },
         {
             "name": "Санкт-Петербург",
-            "percent": "10.0%",
-            "count": 4
+            "percent": "35.0%",
+            "count": 7
         },
         {
-            "name": "Нижний Новгород",
+            "name": "Артемовский (Свердловская область)",
             "percent": "5.0%",
-            "count": 2
-        },
-        {
-            "name": "Екатеринбург",
-            "percent": "5.0%",
-            "count": 2
-        },
-        {
-            "name": "Алматы",
-            "percent": "5.0%",
-            "count": 2
-        },
-        {
-            "name": "Самара",
-            "percent": "5.0%",
-            "count": 2
-        },
-        {
-            "name": "Королев",
-            "percent": "2.5%",
-            "count": 1
-        },
-        {
-            "name": "Краснодар",
-            "percent": "2.5%",
-            "count": 1
-        },
-        {
-            "name": "Воронеж",
-            "percent": "2.5%",
-            "count": 1
-        },
-        {
-            "name": "Великий Новгород",
-            "percent": "2.5%",
-            "count": 1
-        },
-        {
-            "name": "Ульяновск",
-            "percent": "2.5%",
             "count": 1
         }
     ]
