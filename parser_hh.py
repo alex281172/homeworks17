@@ -78,6 +78,7 @@ def parser_hh(proff, pages, region):
                 else:
                     pass
 
+                # my_name = my_result['name']
                 my_address = my_result['area']
                 if my_address == None:
                     my_city = 'Неизвестно'
@@ -87,6 +88,8 @@ def parser_hh(proff, pages, region):
                 my_city_list.append(my_city)
             except:
                 pass
+
+        # total_result = result['found']
 
     lens_skill_list = len(my_skill_list)
     lens_my_city_list = len(my_city_list)

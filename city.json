@@ -1,20 +1,10 @@
 {
-    "keywords": "врач",
+    "keywords": "1C developer",
     "dispersion": [
         {
             "name": "Москва",
-            "percent": "60.0%",
-            "count": 12
-        },
-        {
-            "name": "Санкт-Петербург",
-            "percent": "35.0%",
-            "count": 7
-        },
-        {
-            "name": "Артемовский (Свердловская область)",
-            "percent": "5.0%",
-            "count": 1
+            "percent": "100.0%",
+            "count": 20
         }
     ]
 }
