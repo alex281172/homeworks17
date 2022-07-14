@@ -1,33 +1,18 @@
 {
-    "keywords": "столяр",
+    "keywords": "врач",
     "dispersion": [
         {
             "name": "Москва",
-            "percent": "70.0%",
-            "count": 14
+            "percent": "60.0%",
+            "count": 12
         },
         {
             "name": "Санкт-Петербург",
-            "percent": "10.0%",
-            "count": 2
+            "percent": "35.0%",
+            "count": 7
         },
         {
-            "name": "Одинцово",
-            "percent": "5.0%",
-            "count": 1
-        },
-        {
-            "name": "Новосибирск",
-            "percent": "5.0%",
-            "count": 1
-        },
-        {
-            "name": "Руза",
-            "percent": "5.0%",
-            "count": 1
-        },
-        {
-            "name": "Минск",
+            "name": "Артемовский (Свердловская область)",
             "percent": "5.0%",
             "count": 1
         }

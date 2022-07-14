@@ -11,7 +11,7 @@
             <h1>ПАРСЕР hh.ru</h1>
     <hr>
     <p>
-        Выбор профессии
+            <h3>Выбор профессии</h3>
     </p>
             <ul>
                 <li>
@@ -24,6 +24,13 @@
                     <a href="/results/">Результаты парсера HH.RU</a>
                 </li>
                 <li>
+                    <a href="/results_SQL/">Результаты парсера HH.RU SQL</a>
+                </li>
+                <li>
+                    <a href="/results_SQLAlchemy/">Результаты парсера HH.RU SQLAlchemy</a>
+                </li>
+
+                <li>
                     <a href="/choise/">Парсер HH.RU</a>
                 </li>
                 <li>
@@ -33,21 +40,22 @@
 
 
     <hr>
-    <h3>ФОРМА ПОИСКА</h3>
+
 
 
     <form method="post">
-        <h4>Сколько вакансий анализировать?</h4>
-        <input  type="text" class="form-control" name="pages" placeholder="количество вакансий для парсинга">
-        <h4>Укажите профессию для парсинга</h4>
+        <h5>Профессия для парсинга</h5>
         <input  type="text" class="form-control" name="proff" value="" placeholder="профессия для парсинга">
-<!--        <input type="text" class="form-control" name="" value="" placeholder="укажите вакансию для поиска">-->
+        <h5>Количество вакансий</h5>
+        <input  type="text" class="form-control" name="pages" placeholder="количество вакансий для парсинга">
+        <h5>Регион поиска</h5>
+        <input  type="text" class="form-control" name="region" value="" placeholder="регион поиска">
         <button type="submit">Запрос</button>
-
-
-
-
+        <a href='{{ url_for("index") }}'>
+            <button>Отменить</button>
+        </a>
     </form>
+
 
 
 

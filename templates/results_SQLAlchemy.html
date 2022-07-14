@@ -2,16 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Результаты</title>
-
-    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/main.css') }}">
-
+    <title>SQLAlchemy</title>
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/main.css') }}">
 </head>
 <body>
     <h1>ПАРСЕР hh.ru</h1>
     <hr>
     <p>
-    <h3>Парсер HH.RU</h3>
+        <h3>Парсер + SQLAlchemy HH.RU </h3>
     </p>
         <ul>
                 <li>
@@ -40,12 +38,6 @@
         </ul>
 <hr>
 
-
-
-<!--    {{parser_data}}-->
-
-
-<!--    {{parser_head}}-->
     {% if parser_head %}
     {% for item in parser_head %}
             <p>
@@ -57,15 +49,9 @@
     {% endif %}
 
 
-    {% if parser_data %}
-    {% for item in parser_data %}
-            <li>
-                {{item}}
-            </li>
+    {% for skill in skills %}
+    <li> {{skill.name}}   {{skill.percent}}   {{skill.count}}     </li>
     {% endfor %}
-    {% else %}
-      <p class="alert">Данных нет</p>
-    {% endif %}
 
 
     {% if city_parser_head %}
@@ -79,30 +65,57 @@
 
     {% endif %}
 
-
-    {% if city_parser_data %}
-    {% for item in city_parser_data %}
-            <li>
-                {{item}}
-            </li>
+    {% for city in cities %}
+    <li> {{city.name}} {{city.percent}}   {{city.count}} </li>
     {% endfor %}
-    {% else %}
-      <p class="alert">Данных нет</p>
-
-    {% endif %}
-
-
-    <script src="static/js/scripts.js"></script>
 
 
 
 
+<!--    {% if parser_head %}-->
+<!--    {% for item in parser_head %}-->
+<!--            <p>-->
+<!--                <h3>{{item}}</h3>-->
+<!--            </p>-->
+<!--    {% endfor %}-->
+<!--    {% else %}-->
+<!--      <p class="alert">Данных нет</p>-->
+<!--    {% endif %}-->
 
 
-<p class="proverb">
-    Работа не волк, в лес не убежит
-</p>
+<!--    {% if skill_query %}-->
+<!--    {% for item in skill_query %}-->
+<!--            <p>-->
+<!--                {{item}}-->
+<!--            </p>-->
+<!--    {% endfor %}-->
+<!--    {% else %}-->
+<!--      <p class="alert">Данных нет</p>-->
+
+<!--    {% endif %}-->
+
+<!--    {% if city_parser_head %}-->
+<!--    {% for item in city_parser_head %}-->
+<!--            <p>-->
+<!--                <h3>{{item}}</h3>-->
+<!--            </p>-->
+<!--    {% endfor %}-->
+<!--    {% else %}-->
+<!--      <p class="alert">Данных нет</p>-->
+
+<!--    {% endif %}-->
+
+
+<!--    {% if city_query %}-->
+<!--    {% for item in city_query %}-->
+<!--            <p>-->
+<!--                {{item}}-->
+<!--            </p>-->
+<!--    {% endfor %}-->
+<!--    {% else %}-->
+<!--      <p class="alert">Данных нет</p>-->
+
+<!--    {% endif %}-->
 
 </body>
-
 </html>
